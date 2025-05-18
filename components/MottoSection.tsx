@@ -14,7 +14,7 @@ export default function MottoSection() {
             <p
                 className="text-xl max-w-2xl text-center"
             >
-                "This is a scrolling sentence about the company."
+                &quot;This is a scrolling sentence about the company.&quot;
             </p>
         </SectionContainer>
     )
