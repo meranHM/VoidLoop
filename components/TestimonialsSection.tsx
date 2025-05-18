@@ -1,0 +1,17 @@
+import SectionContainer from "./SectionContainer"
+
+
+export default function TestimonialsSection() {
+    return (
+        <SectionContainer
+            className="bg-charcoal-black flex-col"
+        >
+            <h2
+                className="text-3xl mb-6"
+            >
+                Testimonials
+            </h2>
+            <p>What our clients say...</p>
+        </SectionContainer>
+    )
+}

@@ -7,19 +7,19 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   style: ["normal", "italic"],
-});
+})
 
 const playFair = Playfair_Display({
   variable: "--font-playFair",
   subsets: ["latin"],
   display: "swap",
   style: ["normal", "italic"],
-});
+})
 
 export const metadata: Metadata = {
   title: "VoidLoop",
   description: "A classy and featureful landing page for a music production company",
-};
+}
 
 export default function RootLayout({
   children,
@@ -34,5 +34,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  );
+  )
 }
