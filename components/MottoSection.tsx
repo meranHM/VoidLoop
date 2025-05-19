@@ -5,6 +5,7 @@ export default function MottoSection() {
     return (
         <SectionContainer
             className="bg-charcoal-black flex-col"
+            id="motto"
         >
             <h2
                 className="text-3xl mb-4"

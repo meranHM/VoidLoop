@@ -5,6 +5,7 @@ export default function AboutSection() {
     return (
         <SectionContainer
             className="bg-charcoal-black flex-col"
+            id="about"
         >
             <h2
                 className="text-3xl mb-4"

@@ -4,6 +4,7 @@ export default function ServicesSection() {
     return (
         <SectionContainer
             className="bg-rich-black flex-col"
+            id="services"
         >
             <h2
                 className="text-3xl mb-8"

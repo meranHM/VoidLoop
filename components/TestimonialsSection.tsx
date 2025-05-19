@@ -5,6 +5,7 @@ export default function TestimonialsSection() {
     return (
         <SectionContainer
             className="bg-charcoal-black flex-col"
+            id="testimonials"
         >
             <h2
                 className="text-3xl mb-6"

@@ -1,4 +1,5 @@
 import Header from "@/components/Header"
+import Vinyl from "@/components/Vinyl"
 import HeroSection from "@/components/HeroSection"
 import MottoSection from "@/components/MottoSection"
 import ServicesSection from "@/components/ServicesSection"
@@ -13,8 +14,9 @@ export default function Home() {
   return (
     <>
       <Header />
+      <Vinyl />
       <main
-        className="mt-20 w-full overflow-x-hidden"
+        className="flex flex-col space-y-32 mt-14"
       >
         <HeroSection />
         <MottoSection />

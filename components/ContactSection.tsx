@@ -5,6 +5,7 @@ export default function ContactSection() {
     return (
         <SectionContainer
             className="bg-rich-black flex-col"
+            id="contact"
         >
             <h2>Contact Us</h2>
             <form
