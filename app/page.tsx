@@ -16,7 +16,7 @@ export default function Home() {
       <Header />
       <Vinyl />
       <main
-        className="flex flex-col space-y-32 mt-14"
+        className="flex flex-col mt-14"
       >
         <HeroSection />
         <MottoSection />

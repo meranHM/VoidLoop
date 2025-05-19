@@ -19,16 +19,22 @@
   * {
     scroll-behavior: smooth;
   }
-  h1 {
+  h1, h2, h3, h4, h5, h6 {
     @apply text-royal-gold text-2xl font-playfair
-  }
-  p {
-    @apply text-off-white font-inter
   }
 }
 
 @layer utilities {
   .card {
     @apply bg-charcoal-black p-6 rounded-xl shadow-md
+  }
+
+  .animate-blink {
+    animation: blink 1s step-start infinite;
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
   }
 }

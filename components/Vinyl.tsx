@@ -33,23 +33,16 @@ export default function Vinyl() {
         gsap.timeline({
             scrollTrigger: {
                 trigger: "#motto",
-                start: "top center",
-                end: "bottom center",
+                start: "100px center",
+                end: "center center",
                 scrub: true,
+                markers: true,
             },
         }).to(vinyl, {
             scale: 0.75,
             x: 0,
             y: -200,
             opacity: 1,
-            onComplete: () => {
-                ScrollTrigger.create({
-                    trigger: "#motto",
-                    pin: true,
-                    pinSpacing: false,
-                    end: "+=200",
-                })
-            }
         })
 
         gsap.timeline({
@@ -58,6 +51,7 @@ export default function Vinyl() {
                 start: "top center",
                 end: "center center",
                 scrub: true,
+                markers: true,
         },
         }).to(vinyl, {
             scale: 0.5,
@@ -71,6 +65,7 @@ export default function Vinyl() {
                 start: "top center",
                 end: "bottom center",
                 scrub: true,
+                markers: true,
         },
         }).to(vinyl, {
             scale: 0.75,
@@ -84,6 +79,7 @@ export default function Vinyl() {
                 start: "top center",
                 end: "bottom center",
                 scrub: true,
+                markers: true,
         },
         }).to(vinyl, {
             scale: 0.5,
@@ -98,6 +94,7 @@ export default function Vinyl() {
                 start: "top center",
                 end: "bottom center",
                 scrub: true,
+                markers: true,
         },
         }).to(vinyl, {
             scale: 0.75,
@@ -112,6 +109,7 @@ export default function Vinyl() {
                 start: "top center",
                 end: "bottom center",
                 scrub: true,
+                markers: true,
         },
         }).to(vinyl, {
             scale: 0.5,

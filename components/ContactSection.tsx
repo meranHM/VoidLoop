@@ -4,7 +4,7 @@ import SectionContainer from "./SectionContainer"
 export default function ContactSection() {
     return (
         <SectionContainer
-            className="bg-rich-black flex-col"
+            className="bg-charcoal-black flex-col"
             id="contact"
         >
             <h2>Contact Us</h2>
