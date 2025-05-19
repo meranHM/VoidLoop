@@ -19,7 +19,7 @@ export function useStaticTypewriter(text: string, speed: number = 100) {
         }, speed)
 
         return () => clearInterval(interval)
-    }, [])
+    }, [text, speed])
 
     return displayedText
 }

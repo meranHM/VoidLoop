@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 
 
-export function useTypewriter(words: string[], loop = true, delay = 1500) {
+export function useTypewriter(words: string[], delay = 1500) {
     const [index, setIndex] = useState(0)
     const [text, setText] = useState("")
     const [isDeleting, setIsDeleting] = useState(false)

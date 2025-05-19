@@ -54,10 +54,10 @@ export default function HeroSection() {
                             </p>
                         </div>
                         <p
-                            className="absolute left-16 bottom-1/7 uppercase text-left text-5xl leading-relaxed text-off-white"
+                            className="absolute left-[3%] bottom-[5%] uppercase text-left text-2xl sm:text-3xl md:text-5xl leading-relaxed text-off-white"
                         >
                             Pundits of<br />
-                            "{text}"<span className="animate-blink">|</span>
+                            &quot;{text}&quot;<span className="animate-blink">|</span>
                         </p>
                     </div>
                 </div>
