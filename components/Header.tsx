@@ -61,7 +61,7 @@ export default function Header() {
 
     return (
         <header
-            className="fixed top-0 right-0 left-0 bg-transparent md:bg-charcoal-black items-center p-1 justify-center md:border-b md:border-muted-gray md:shadow-sm md:shadow-muted-gray z-50"
+            className="fixed top-0 right-0 left-0 bg-transparent md:bg-charcoal-black items-center p-1 justify-center border-b border-royal-gold shadow-sm shadow-muted-gray z-50"
         >
             <div
                 className="w-full max-w-[90%] flex justify-between"

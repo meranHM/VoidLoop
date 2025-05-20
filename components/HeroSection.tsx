@@ -19,7 +19,7 @@ export default function HeroSection() {
                 className="relative w-full px-10 pt-4 pb-10 md:pt-8 md:pb-16 lg:pt-12 lg:pb-36"
             >
                 <div
-                    className="relative  rounded-3xl overflow-hidden min-h-[70vh] sm:min-h-[80vh] md:min-h-[85vh] flex flex-col items-center justify-center"
+                    className="relative rounded-3xl overflow-hidden min-h-[70vh] sm:min-h-[80vh] md:min-h-[85vh] flex flex-col items-center justify-center"
                 >
                     {/* Video Background */}
                     <div

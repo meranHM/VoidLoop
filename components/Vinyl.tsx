@@ -16,9 +16,7 @@ export default function Vinyl() {
         const vinyl = vinylRef.current
 
         gsap.set(vinyl, {
-            xPercent: -50,
-            yPercent: -50,
-            opacity: 0,
+            opacity: 0
         })
 
         // Vinyl's idle animation
@@ -33,16 +31,18 @@ export default function Vinyl() {
         gsap.timeline({
             scrollTrigger: {
                 trigger: "#motto",
-                start: "100px center",
-                end: "center center",
-                scrub: true,
-                markers: true,
+                start: "43% center",
+                end: "90% center",
+                /* markers: true, */
+                toggleActions: "play none none reverse",
+                pin: true
             },
         }).to(vinyl, {
-            scale: 0.75,
-            x: 0,
-            y: -200,
+            xPercent: -90,
+            yPercent: -45,
             opacity: 1,
+            duration: 0.5,
+            ease: "power1.in"
         })
 
         gsap.timeline({
@@ -51,7 +51,6 @@ export default function Vinyl() {
                 start: "top center",
                 end: "center center",
                 scrub: true,
-                markers: true,
         },
         }).to(vinyl, {
             scale: 0.5,
@@ -65,7 +64,6 @@ export default function Vinyl() {
                 start: "top center",
                 end: "bottom center",
                 scrub: true,
-                markers: true,
         },
         }).to(vinyl, {
             scale: 0.75,
@@ -79,7 +77,6 @@ export default function Vinyl() {
                 start: "top center",
                 end: "bottom center",
                 scrub: true,
-                markers: true,
         },
         }).to(vinyl, {
             scale: 0.5,
@@ -94,7 +91,6 @@ export default function Vinyl() {
                 start: "top center",
                 end: "bottom center",
                 scrub: true,
-                markers: true,
         },
         }).to(vinyl, {
             scale: 0.75,
@@ -109,7 +105,6 @@ export default function Vinyl() {
                 start: "top center",
                 end: "bottom center",
                 scrub: true,
-                markers: true,
         },
         }).to(vinyl, {
             scale: 0.5,
@@ -122,14 +117,14 @@ export default function Vinyl() {
     return (
         <div
             ref={vinylRef}
-            className="fixed top-1/2 left-1/2 z-30 pointer-events-none"
+            className="w-[250px] h-[250px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px] fixed top-1/2 left-1/3 z-30 pointer-events-none"
             id="vinyl"
         >
             <Image 
                 src="/vinyl.png"
                 alt="Vinyl image"
-                width={350}
-                height={350}
+                width={720}
+                height={720}
                 className="w-full h-auto"
             />
         </div>

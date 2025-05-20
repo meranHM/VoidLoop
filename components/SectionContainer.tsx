@@ -1,3 +1,4 @@
+import { forwardRef } from "react"
 
 interface SectionContainerProps {
     children: React.ReactNode
@@ -5,13 +6,20 @@ interface SectionContainerProps {
     id: string
 }
 
-export default function SectionContainer({ children, className, id }: SectionContainerProps) {
-    return (
-        <section
-            className={`min-h-screen w-full text-off-white flex items-center justify-center ${className || ""}`}
-            id={id}
-        >
-            {children}
-        </section>
-    )
-}
+const SectionContainer = forwardRef<HTMLElement, SectionContainerProps>(
+    ({ children, className, id }, ref) => {
+        return (
+            <section
+                ref={ref}
+                className={`min-h-screen w-full text-off-white flex items-center justify-center ${className || ""}`}
+                id={id}
+            >
+                {children}
+            </section>
+        )
+    }
+)
+
+export default SectionContainer
+
+
