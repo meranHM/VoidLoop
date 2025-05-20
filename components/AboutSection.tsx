@@ -4,7 +4,7 @@ import SectionContainer from "./SectionContainer"
 export default function AboutSection() {
     return (
         <SectionContainer
-            className="bg-charcoal-black flex-col"
+            className="bg-rich-black flex-col mt-16"
             id="about"
         >
             <h2
