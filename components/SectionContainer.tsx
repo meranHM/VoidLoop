@@ -20,6 +20,8 @@ const SectionContainer = forwardRef<HTMLElement, SectionContainerProps>(
     }
 )
 
+SectionContainer.displayName = "SectionContainer"
+
 export default SectionContainer
 
 
