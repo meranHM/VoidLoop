@@ -14,15 +14,15 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Vinyl />
+      {/* <Vinyl /> */}
       <main
         className="flex flex-col mt-14"
       >
         <HeroSection />
         <MottoSection />
-        <AboutSection />
-        <PortfolioSection />
         <ServicesSection />
+        <PortfolioSection />
+        <AboutSection />
         <TestimonialsSection />
         <ContactSection />
       </main>
