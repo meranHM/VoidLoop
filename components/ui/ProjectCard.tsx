@@ -9,7 +9,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ src, title, description, className }: ProjectCardProps) {
     return (
         <article
-            className="max-w-96 rounded-2xl p-6 flex flex-col justify-center items-center space-y-4"
+            className={`max-w-96 rounded-2xl p-6 flex flex-col justify-center items-center space-y-4 ${className || ""}`}
         >
             <div>
                 <h3
