@@ -61,7 +61,7 @@ export default function Header() {
 
     return (
         <header
-            className="fixed top-0 right-0 left-0 bg-transparent md:bg-charcoal-black items-center p-1 justify-center border-b border-royal-gold shadow-sm shadow-muted-gray z-50"
+            className="fixed top-0 right-0 left-0 bg-transparent md:bg-charcoal-black items-center p-1 justify-center md:border-b border-royal-gold md:shadow-sm shadow-muted-gray z-40"
         >
             <div
                 className="w-full max-w-[90%] flex justify-between"
@@ -79,7 +79,7 @@ export default function Header() {
 
                 {/* Hamburger Menu Button */}
                 <div
-                    className="md:hidden fixed top-8 right-4 z-50"
+                    className="md:hidden fixed top-8 right-4 z-40"
                 >
                     <button
                         className="p-1 rounded-lg backdrop-blur-md bg-royal-gold hover:bg-royal-gold/80 cursor-pointer"
