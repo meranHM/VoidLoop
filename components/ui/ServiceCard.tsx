@@ -1,5 +1,3 @@
-import { Service } from "@/constants/types"
-
 interface ServiceCardProps {
     id: string
     className?: string
