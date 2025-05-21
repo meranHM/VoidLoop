@@ -57,7 +57,7 @@ export default function ServiceModal({ title, description, handleClose }: Servic
         >
             {/* Content */}
             <div
-                className="relative w-full max-w-2xl bg-rich-black border border-royal-gold mx-10 sm:mx-6 py-10 space-y-10 rounded-xl flex flex-col items-center justify-between"
+                className="relative modal-light w-full max-w-2xl bg-rich-black border border-royal-gold mx-10 sm:mx-6 py-10 space-y-10 rounded-xl flex flex-col items-center justify-between"
                 ref={content}
             >
                 <h3
@@ -66,7 +66,7 @@ export default function ServiceModal({ title, description, handleClose }: Servic
                     {title}
                 </h3>
                 <p
-                    className="w-full max-w-[70%] text-lg md:text-xl"
+                    className="w-full max-w-[70%] text-lg md:text-xl text-center"
                 >
                     {description}
                 </p>

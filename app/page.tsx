@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Header />
       <main
-        className="relative flex flex-col mt-14 space-y-10"
+        className="relative flex flex-col mt-14 overflow-x-hidden"
       >
         <HeroSection />
         <MottoSection />

@@ -12,7 +12,6 @@ export default function HeroSection() {
 
     return (
         <SectionContainer
-            className="bg-rich-black"
             ref={heroRef}
             id="hero"
         >

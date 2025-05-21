@@ -4,7 +4,7 @@ import SectionContainer from "./ui/SectionContainer"
 export default function TestimonialsSection() {
     return (
         <SectionContainer
-            className="bg-rich-black flex-col"
+            className="flex-col"
             id="testimonials"
         >
             <h2

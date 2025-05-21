@@ -11,7 +11,7 @@ export default function ServiceCard({ id, className, title, dataAnimate, handleO
     return (
         <button
             id={id}
-            className={`card ${className || "text-transparent bg-clip-text bg-gradient-to-r from-off-white to-royal-gold"}`}
+            className={`card ${className || ""}`}
             data-animate={dataAnimate}
             onClick={handleOpenModal}
         >

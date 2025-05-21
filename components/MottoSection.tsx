@@ -54,12 +54,11 @@ export default function MottoSection() {
 
     return (
         <SectionContainer
-            className="bg-rich-black"
             id="motto"
             ref={mottoRef}
         >
             <div
-                className="relative w-full flex justify-end items-center px-10 pt-4 pb-10 md:pt-8 md:pb-16 lg:pt-12 lg:pb-32"
+                className="relative w-full flex justify-end items-center px-10 py-4 sm:py-6 md:py-8 lg:py-12"
             >
 
                 <Vinyl 

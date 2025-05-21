@@ -20,7 +20,16 @@
     scroll-behavior: smooth;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply text-royal-gold text-2xl font-playfair
+    @apply text-royal-gold font-playfair
+  }
+  h2 {
+    @apply uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4
+  }
+  h3 {
+    @apply uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold
+  }
+  p {
+    @apply text-off-white
   }
 }
 
@@ -36,5 +45,19 @@
     50% {
       opacity: 0;
     }
+  }
+
+  .modal-light::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 200, 0.3), transparent 80%);
+    pointer-events: none;
+    filter: blur(50px);
+    z-index: 10;
   }
 }

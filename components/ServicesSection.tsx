@@ -3,13 +3,13 @@
 import SectionContainer from "./ui/SectionContainer"
 import ServiceCard from "./ui/ServiceCard"
 import { useRef, useState } from "react"
-import { disablePageScroll, enablePageScroll } from "@fluejs/noscroll"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { services } from "@/constants"
 import { Service } from "@/constants/types"
 import ServiceModal from "./modals/ServiceModal"
+import Image from "next/image"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -22,8 +22,9 @@ export default function ServicesSection() {
 
     useGSAP(() => {
         const services = servicesRef.current
+        if (!services) return
 
-        // Section animations
+        // ServiceCards animations
         gsap.timeline({
             scrollTrigger: {
                 trigger: services,
@@ -50,7 +51,6 @@ export default function ServicesSection() {
 
         setSelectedService(service)
         setIsModalOpen(true)
-        disablePageScroll()
     }
 
     const handleCloseModal = () => {
@@ -58,18 +58,17 @@ export default function ServicesSection() {
 
         setSelectedService(null)
         setIsModalOpen(false)
-        enablePageScroll()
     }
 
 
     return (
         <SectionContainer
-            className="bg-rich-black flex-col"
+            className="flex-col lg:flex-row lg:px-10"
             id="services"
             ref={servicesRef}
         >
             <div
-                className="relative w-full flex justify-start items-center px-10 pt-4 pb-10 md:pt-8 md:pb-16 lg:pt-12 lg:pb-32"
+                className="relative w-full flex justify-start items-center px-10 py-4 sm:py-6 md:py-8 lg:py-12"
             >
                 <article
                     className="w-full p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-start gap-6"
@@ -77,9 +76,7 @@ export default function ServicesSection() {
                     <div
                         className="text-left"
                     >
-                        <h2
-                            className="uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4"
-                        >
+                        <h2>
                             Our Experties
                         </h2>
                         <p
@@ -92,27 +89,27 @@ export default function ServicesSection() {
                         </p>
                     </div>
                     <div
-                        className="w-full flex flex-col sm:flex-row items-center justify-center md:space-x-8 pt-12 sm:mt-4 md:mt-8"
+                        className="w-full flex flex-col sm:flex-row items-center justify-center md:space-x-8"
                     >
                         <p
-                            className="text-muted-gray text-nowrap mb-4 sm:mb-0"
+                            className="text-muted-gray text-nowrap mr-6 md:mr-4 mb-4 md:mb-0"
                         >
-                            Tap to Know More <span className="hidden sm:inline">-&gt;</span> 
+                            Click for More Info <span className="hidden sm:inline">-&gt;</span> 
                         </p>
-                        <div
-                            className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-3 sm:self-end text-center"
-                        >
-                            {services.map((service) => (
-                                <ServiceCard
-                                    key={service.id}
-                                    id={service.id}
-                                    title={service.title}
-                                    dataAnimate="service-card"
-                                    className=""
-                                    handleOpenModal={() => handleOpenModal(service)}
-                                />
-                            ))}
-                        </div>
+                            <div
+                                className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-3 text-center"
+                            >
+                                {services.map((service) => (
+                                    <ServiceCard
+                                        key={service.id}
+                                        id={service.id}
+                                        title={service.title}
+                                        dataAnimate="service-card"
+                                        className="text-sm lg:text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-off-white to-royal-gold"
+                                        handleOpenModal={() => handleOpenModal(service)}
+                                    />
+                                ))}
+                            </div>
                     </div>
                     {selectedService && (
                         <ServiceModal 
@@ -123,6 +120,13 @@ export default function ServicesSection() {
                     )}
                 </article>
             </div>
+            <Image 
+                src="/sol-key.png"
+                alt="Treble Clef"
+                width={350}
+                height={500}
+                className="hover:rotate-6 transition-transform  w-[20%] lg:w-[25%]"
+            />
         </SectionContainer>
     )
 }
