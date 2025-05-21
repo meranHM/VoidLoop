@@ -2,17 +2,18 @@
 
 import SectionContainer from "./ui/SectionContainer"
 import { useTypewriter } from "@/lib/hooks/useTypewriter"
-import { useStaticTypewriter } from "@/lib/hooks/useStaticTypewriter"
-
+import { useRef } from "react"
 
 
 export default function HeroSection() {
+    const heroRef = useRef<HTMLDivElement>(null)
     const text = useTypewriter(["production", "composing", "mix & mastering", "tuning", "sound design"])
-    const typedText = useStaticTypewriter(" Elevate your music with world-class production.")
+
 
     return (
         <SectionContainer
             className="bg-rich-black"
+            ref={heroRef}
             id="hero"
         >
             <div
@@ -50,7 +51,7 @@ export default function HeroSection() {
                             <p
                                 className="mt-4 px-2 rounded text-base sm:text-lg md:text-xl text-off-white/80"
                             >
-                                {typedText}
+                                Elevate your music with world-class production.
                             </p>
                         </div>
                         <p
