@@ -29,7 +29,7 @@ export default function ServicesSection() {
                 trigger: services,
                 start: "15% center",
                 end: "bottom center",
-                toggleActions: "play none none reverse"
+                toggleActions: "play none none reverse",
             }
         }).from("[data-animate='service-card']", {
             scale: 0.5,

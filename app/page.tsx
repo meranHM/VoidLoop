@@ -1,5 +1,4 @@
 import Header from "@/components/Header"
-import Vinyl from "@/components/Vinyl"
 import HeroSection from "@/components/HeroSection"
 import MottoSection from "@/components/MottoSection"
 import ServicesSection from "@/components/ServicesSection"
@@ -14,9 +13,8 @@ export default function Home() {
   return (
     <>
       <Header />
-      {/* <Vinyl /> */}
       <main
-        className="flex flex-col mt-14"
+        className="relative flex flex-col mt-14 space-y-10"
       >
         <HeroSection />
         <MottoSection />
