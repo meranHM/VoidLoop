@@ -1,6 +1,6 @@
 "use client"
 
-import SectionContainer from "./SectionContainer"
+import SectionContainer from "./ui/SectionContainer"
 import { useRef } from "react"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
@@ -21,15 +21,14 @@ export default function MottoSection() {
             scrollTrigger: {
                 trigger: motto,
                 start: "30% center",
-                end: "top center",
-                toggleActions: "play none reverse none"
+                end: "bottom center",
+                toggleActions: "play none none reverse"
             }
         }).from(mottoBox, {
             scale: 0.75,
             x: -500,
             ease: "power1.in"
         })
-
 
     }, {scope: mottoRef})
 
@@ -47,7 +46,7 @@ export default function MottoSection() {
                     ref={mottoBoxRef}
                 >
                     <h2
-                        className="text-off-white uppercase text-2xl sm:text-3xl md:text-4xl lg:text-6xl flex flex-col justify-center gap-2"
+                        className="text-off-white uppercase text-4xl md:text-5xl lg:text-6xl flex flex-col justify-center py-8"
                     >
                         <span className="text-royal-gold">Music</span>
                         <span className="text-royal-gold">talks</span>
@@ -55,7 +54,7 @@ export default function MottoSection() {
                         <span className="text-nowrap">not minds</span>
                     </h2>
                     <p
-                        className="mt-6 text-2xl italic text-muted-gray text-nowrap"
+                        className="mt-6 text-lg sm:text-xl md:text-2xl italic text-muted-gray text-nowrap"
                     >
                         VoidLoop Records
                     </p>
