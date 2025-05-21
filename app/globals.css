@@ -26,7 +26,7 @@
 
 @layer utilities {
   .card {
-    @apply bg-charcoal-black p-6 rounded-xl shadow-md
+    @apply uppercase bg-charcoal-black p-6 rounded-lg shadow-sm shadow-muted-gray hover:shadow-royal-gold transform transition-shadow cursor-pointer
   }
 
   .animate-blink {

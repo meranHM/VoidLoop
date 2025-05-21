@@ -1,4 +1,4 @@
-import SectionContainer from "./SectionContainer"
+import SectionContainer from "./ui/SectionContainer"
 
 
 export default function TestimonialsSection() {

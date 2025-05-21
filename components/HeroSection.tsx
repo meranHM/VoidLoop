@@ -1,6 +1,6 @@
 "use client"
 
-import SectionContainer from "./SectionContainer"
+import SectionContainer from "./ui/SectionContainer"
 import { useTypewriter } from "@/lib/hooks/useTypewriter"
 import { useStaticTypewriter } from "@/lib/hooks/useStaticTypewriter"
 
