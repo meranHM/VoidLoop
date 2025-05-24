@@ -27,12 +27,16 @@ export default function HeroSection() {
                     >
                         <video 
                             className="object-cover w-full h-full"
-                            src="/hero-video.webm"
                             autoPlay
                             loop
                             muted
                             playsInline
-                        />
+                            preload="none"
+                            aria-hidden="true"
+                        >
+                            <source src="/hero-video.webm" type="video/webm"/>
+                            <source src="/hero-video.mp4" type="video/mp4"/>
+                        </video>
                     </div>
 
                     {/* Foreground Layer */}
