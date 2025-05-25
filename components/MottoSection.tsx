@@ -63,7 +63,9 @@ export default function MottoSection() {
 
                 <Vinyl 
                     ref={mottoVinylRef}
-                    className="left-1/3 -translate-x-1/3"
+                    className="left-1/3 -translate-x-1/3 w-[250px] h-[250px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px]"
+                    width={450}
+                    height={450}
                 />
 
                 <div
