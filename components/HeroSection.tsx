@@ -3,6 +3,7 @@
 import SectionContainer from "./ui/SectionContainer"
 import { useTypewriter } from "@/lib/hooks/useTypewriter"
 import { useRef } from "react"
+import ClientOnly from "./ClientOnly"
 
 
 export default function HeroSection() {
@@ -25,18 +26,20 @@ export default function HeroSection() {
                     <div
                         className="absolute inset-0 z-0 pointer-events-none"
                     >
-                        <video 
-                            className="object-cover w-full h-full"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            preload="none"
-                            aria-hidden="true"
-                        >
-                            <source src="/hero-video.webm" type="video/webm"/>
-                            <source src="/hero-video.mp4" type="video/mp4"/>
-                        </video>
+                        <ClientOnly>
+                            <video 
+                                className="object-cover w-full h-full"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                preload="none"
+                                aria-hidden="true"
+                            >
+                                <source src="/hero-video.webm" type="video/webm"/>
+                                <source src="/hero-video.mp4" type="video/mp4"/>
+                            </video>
+                        </ClientOnly>
                     </div>
 
                     {/* Foreground Layer */}
