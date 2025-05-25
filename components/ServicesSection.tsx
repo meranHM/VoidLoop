@@ -43,6 +43,21 @@ export default function ServicesSection() {
             }
         })
 
+        // SolKey animations
+        gsap.fromTo("#solkey", {
+            skewX: 0,
+        },
+        {
+            skewX: -8,
+            scrollTrigger: {
+                trigger: services,
+                start: "top center",
+                end: "center center",
+                scrub: true,
+            }
+        }
+    )
+
     }, { scope: servicesRef })
 
     // Handling opening and closing modals
@@ -63,15 +78,15 @@ export default function ServicesSection() {
 
     return (
         <SectionContainer
-            className="flex-col lg:flex-row lg:px-10"
+            className="relative flex-col lg:flex-row"
             id="services"
             ref={servicesRef}
         >
             <div
-                className="relative w-full flex justify-start items-center px-10 py-4 sm:py-6 md:py-8 lg:py-12"
+                className="relative w-full flex justify-center items-center py-4 sm:py-6 md:py-8 lg:py-12"
             >
                 <article
-                    className="w-full p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-start gap-6"
+                    className="w-full flex flex-col justify-start gap-6"
                 >
                     <div
                         className="text-left"
@@ -97,7 +112,7 @@ export default function ServicesSection() {
                             Click for More Info <span className="hidden sm:inline">-&gt;</span> 
                         </p>
                             <div
-                                className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-3 text-center"
+                                className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-3 justify-center"
                             >
                                 {services.map((service) => (
                                     <ServiceCard
@@ -120,13 +135,18 @@ export default function ServicesSection() {
                     )}
                 </article>
             </div>
-            <Image 
-                src="/sol-key.png"
-                alt="Treble Clef"
-                width={350}
-                height={500}
-                className="hover:rotate-6 transition-transform  w-[20%] lg:w-[25%]"
-            />
+            <div
+                className="w-2/3 mr-10 z-0"
+                id="solkey"
+            >
+                <Image 
+                    src="/solkey.svg"
+                    alt="Sol Key"
+                    width={450}
+                    height={550}
+                    className="size-full"
+                />
+            </div>
         </SectionContainer>
     )
 }
