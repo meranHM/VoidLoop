@@ -47,10 +47,10 @@ export default function PortfolioSection() {
             ref={portfolioRef}
         >
             <div
-                className="relative w-full px-6 py-4 sm:py-6 md:py-8 lg:py-12"
+                className="w-full flex flex-col space-y-8 px-6 py-4 sm:py-6 md:py-8 lg:py-12"
             >
                 <div
-                    className="flex flex-col justify-center items-center"
+                    className="flex flex-col justify-center items-start"
                 >
                     <h2>
                         Our Portfolio
@@ -58,23 +58,28 @@ export default function PortfolioSection() {
                     <p
                         className="text-xl sm:text-xl md:text-2xl leading-8"
                     >
-                        Showcasing completed projects...
+                        Let's go through<br />
+                        some parts of our journey
                     </p>
                 </div>
                 <div
-                    className="w-full flex flex-col lg:flex-row justify-evenly items-center p-6"
+                    className="w-full flex flex-col lg:flex-row justify-evenly items-center p-6 bg-rich-black rounded-4xl shadow-2xl shadow-rich-black"
                 >
                     <ProjectCard 
-                        title="Granny's Home"
-                        src="/hero-video.webm"
+                        title="Abhor"
+                        src="/project-thumbnail.webp"
+                        audioSrc="/After.mp3"
                     />
                     <ProjectCard 
                         title="Granny's Home"
-                        src="/hero-video.webm"
+                        src="/project-thumbnail.webp"
+                        description="Soul Provoking"
+                        audioSrc="/After.mp3"
                     />
                     <ProjectCard 
-                        title="Granny's Home"
-                        src="/hero-video.webm"
+                        title="Abyss"
+                        src="/project-thumbnail.webp"
+                        audioSrc="/After.mp3"
                     />
                 </div>
             </div>
