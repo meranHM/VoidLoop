@@ -11,7 +11,7 @@ const SectionContainer = forwardRef<HTMLElement, SectionContainerProps>(
         return (
             <section
                 ref={ref}
-                className={`min-h-screen w-full flex items-center justify-center text-off-white ${className || ""}`}
+                className={`min-h-screen w-full px-4 lg:px-10 flex items-center justify-center text-off-white ${className || ""}`}
                 id={id}
             >
                 {children}
