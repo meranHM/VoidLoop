@@ -83,11 +83,8 @@ export default function ServicesSection() {
             ref={servicesRef}
         >
             <div
-                className="relative w-full flex justify-center items-center py-4 sm:py-6 md:py-8 lg:py-12"
+                className="relative w-full flex flex-col justify-center items-start space-y-6 px-6 py-4 sm:py-6 md:py-8 lg:py-12"
             >
-                <article
-                    className="w-full flex flex-col justify-start gap-6"
-                >
                     <div
                         className="text-left"
                     >
@@ -126,6 +123,7 @@ export default function ServicesSection() {
                                 ))}
                             </div>
                     </div>
+                    {/* Check Layout jumping up on opening modal */}
                     {selectedService && (
                         <ServiceModal 
                             handleClose={handleCloseModal}
@@ -133,7 +131,6 @@ export default function ServicesSection() {
                             description={selectedService.description}
                         />
                     )}
-                </article>
             </div>
             <div
                 className="w-2/3 mr-10 z-0"
