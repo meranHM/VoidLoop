@@ -18,8 +18,8 @@ const Vinyl = forwardRef<HTMLDivElement, VinylProps>(({ className }, ref) => {
             <Image 
                 src="/vinyl.png"
                 alt="Vinyl image"
-                width={720}
-                height={720}
+                width={450}
+                height={450}
                 className="w-full h-auto"
             />
         </div>
