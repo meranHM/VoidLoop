@@ -58,7 +58,7 @@ export default function PortfolioSection() {
                     <p
                         className="text-xl sm:text-xl md:text-2xl leading-8"
                     >
-                        Let's go through<br />
+                        Let&apos;s go through<br />
                         some parts of our journey
                     </p>
                 </div>
