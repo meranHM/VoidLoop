@@ -2,6 +2,7 @@
 
 import SectionContainer from "./ui/SectionContainer"
 import ProjectCard from "./ui/ProjectCard"
+import { projects } from "@/constants"
 import { useRef } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
@@ -65,21 +66,15 @@ export default function PortfolioSection() {
                 <div
                     className="w-full flex flex-col lg:flex-row justify-evenly items-center p-6 bg-rich-black rounded-4xl shadow-2xl shadow-rich-black"
                 >
-                    <ProjectCard
-                        title="Abhor"
-                        imgSrc="/project-thumbnail.webp"
-                        audioSrc="/After.mp3"
-                    />
-                    <ProjectCard
-                        title="Granny's Home"
-                        imgSrc="/project-thumbnail.webp"
-                        audioSrc="/After.mp3"
-                    />
-                    <ProjectCard
-                        title="Abyss"
-                        imgSrc="/project-thumbnail.webp"
-                        audioSrc="/After.mp3"
-                    />
+                    {projects.slice(0, 3).map(({ id, title, audioSrc, thumbnailSrc }) =>(
+                        <ProjectCard
+                            key={id}
+                            id={id}
+                            title={title}
+                            audioSrc={audioSrc}
+                            thumbnailSrc={thumbnailSrc}
+                        />
+                    ))}
                 </div>
             </div>
         </SectionContainer>

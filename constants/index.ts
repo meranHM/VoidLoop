@@ -1,4 +1,4 @@
-import { Service } from "./types"
+import { Service, Project } from "./types"
 
 // Header
 export const navLinks = [
@@ -20,7 +20,7 @@ export const navLinks = [
     },
 ]
 
-// Services Section
+// Services
 export const services: Service[] = [
     {
         id: "production",
@@ -41,5 +41,27 @@ export const services: Service[] = [
         id:"scoring",
         title: "Scoring",
         description: "Custom scores for film, games, and media with cinematic depth and emotion.",
+    },
+]
+
+// Projects
+export const projects: Project[] = [
+    {
+        id: "after",
+        title: "After",
+        audioSrc: "/portfolio-songs/abhor/after.mp3",
+        thumbnailSrc: "/portfolio-songs/abhor/project-thumbnail.webp",
+    },
+    {
+        id: "house-of-rising",
+        title: "House of Rising",
+        audioSrc: "/portfolio-songs/grannys-home/house-of-rising.mp3",
+        thumbnailSrc: "/portfolio-songs/grannys-home/project-thumbnail.webp",
+    },
+    {
+        id: "devil",
+        title: "Devil",
+        audioSrc: "/portfolio-songs/abyss/Devil.mp3",
+        thumbnailSrc: "/portfolio-songs/abhor/project-thumbnail.webp",
     },
 ]

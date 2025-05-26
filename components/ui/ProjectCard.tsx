@@ -1,47 +1,79 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useEffect } from "react"
 import { usePlayerStore } from "@/providers/player-store-provider"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
 import Image from "next/image"
 import ClientOnly from "../ClientOnly"
 import Vinyl from "./Vinyl"
 
 interface ProjectCardProps {
+    id: string
     title: string
-    imgSrc: string
+    thumbnailSrc: string
     audioSrc: string
 }
 
 
-export default function ProjectCard({ imgSrc, title, audioSrc }: ProjectCardProps) {
+export default function ProjectCard({ id, title, thumbnailSrc, audioSrc }: ProjectCardProps) {
     const isPlaying = usePlayerStore((state) => state.isPlaying)
     const currentTrackId = usePlayerStore((state) => state.currentTrackId)
     const setTrackId = usePlayerStore((state) => state.setTrackId)
-    const pause = usePlayerStore((state) => state.pause)
-    const play = usePlayerStore((state) => state.play)
+    const pauseGlobal = usePlayerStore((state) => state.pause)
+    const playGlobal = usePlayerStore((state) => state.play)
     const end = usePlayerStore((state) => state.end)
+    const setAudioRef = usePlayerStore((state) => state.setAudioRef)
+    const audioRefs = usePlayerStore((state) => state.audioRefs)
 
     const audioRef = useRef<HTMLAudioElement>(null)
     const vinylRef = useRef<HTMLDivElement>(null)
+    const cardRef = useRef<HTMLDivElement>(null)
 
-    const isCurrentTrack = currentTrackId === audioSrc
+    useEffect(() => {
+        setAudioRef(id, audioRef.current)
+    }, [audioRef.current])
 
     const toggleAudio = () => {
-        const audio = audioRef.current
-        if (!audio) return
+        const currentAudio = audioRef.current
+        if (!currentAudio) return
 
-        if (isPlaying && isCurrentTrack) {
-            audio.pause()
+        // Pausing any other audio if playying
+        if (currentTrackId && currentTrackId !== id) {
+            const prevAudio = audioRefs[currentTrackId]
+            prevAudio?.pause()
+            prevAudio!.currentTime = 0
+        }
+
+        if (currentTrackId === id && isPlaying) {
+            currentAudio.pause()
         } else {
-            setTrackId(audioSrc)
-            audio.play()
+            setTrackId(id)
+            currentAudio.play()
         }
     }
 
     // Syncing state with the audio playback
-    const handlePlay = () => play()
-    const handlePause = () => pause()
+    const handlePlay = () => playGlobal()
+    const handlePause = () => pauseGlobal()
     const handleEnded = () => end()
+
+    // Animating Vinyl on play
+    useGSAP(() => {
+        const vinyl = vinylRef.current
+        if (!vinyl) return
+
+        const tl = gsap.timeline()
+        if (isPlaying && currentTrackId === id) {
+            tl.to(vinyl, {
+                rotate: 360,
+                duration: 15,
+                repeat: -1,
+                ease: "none",
+            })
+        }
+
+    }, { scope: cardRef, dependencies: [isPlaying, currentTrackId], revertOnUpdate: true })
 
     return (
         <article
@@ -52,9 +84,9 @@ export default function ProjectCard({ imgSrc, title, audioSrc }: ProjectCardProp
                 className="absolute inset-0 z-0 overflow-hidden"
             >
                 <Image 
-                    src={imgSrc}
+                    src={thumbnailSrc}
                     alt={`${title} thumbnail`}
-                    width={350}
+                    width={787}
                     height={384}
                     className="w-full h-full object-cover"
                 />
@@ -63,6 +95,7 @@ export default function ProjectCard({ imgSrc, title, audioSrc }: ProjectCardProp
             {/* Foreground layer */}
             <div
                 className="absolute inset-0 z-10 overflow-hidden flex flex-col items-center justify-between p-4"
+                ref={cardRef}
             >
                 <div
                     className="text-center flex flex-col justify-between"
@@ -76,9 +109,10 @@ export default function ProjectCard({ imgSrc, title, audioSrc }: ProjectCardProp
                 </div>
 
                 <Vinyl
-                    width={120}
-                    height={120}
+                    width={240}
+                    height={240}
                     ref={vinylRef}
+                    className="w-32 h-32"
                 />
 
                 {/* Audio Controls */}
@@ -87,7 +121,7 @@ export default function ProjectCard({ imgSrc, title, audioSrc }: ProjectCardProp
                         onClick={toggleAudio}
                         className="bg-off-white rounded-full text-rich-black px-3 py-2 text-sm cursor-pointer"
                     >
-                        {isPlaying ? "Pause" : "Play"}
+                        {isPlaying && currentTrackId === id ? "Pause" : "Play"}
                     </button>
                     <ClientOnly >
                         <audio 
