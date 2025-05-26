@@ -70,7 +70,7 @@ export default function ProjectCard({ src, title, audioSrc }: ProjectCardProps) 
                 <Vinyl
                     width={120}
                     height={120}
-                    className=""
+                    ref={vinylRef}
                 />
 
                 {/* Audio Controls */}
