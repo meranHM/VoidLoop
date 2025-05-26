@@ -73,7 +73,6 @@ export default function PortfolioSection() {
                     <ProjectCard 
                         title="Granny's Home"
                         src="/project-thumbnail.webp"
-                        description="Soul Provoking"
                         audioSrc="/After.mp3"
                     />
                     <ProjectCard 

@@ -3,18 +3,20 @@
 import { useRef, useState } from "react"
 import Image from "next/image"
 import ClientOnly from "../ClientOnly"
+import Vinyl from "./Vinyl"
 
 interface ProjectCardProps {
     src: string
     title: string
     audioSrc: string
-    description?: string
 }
 
 
-export default function ProjectCard({ src, title, description, audioSrc }: ProjectCardProps) {
+export default function ProjectCard({ src, title, audioSrc }: ProjectCardProps) {
     const [isPlaying, setIsPlaying] = useState(false)
+
     const audioRef = useRef<HTMLAudioElement>(null)
+    const vinylRef = useRef<HTMLDivElement>(null)
 
     const toggleAudio = () => {
         const audio = audioRef.current
@@ -52,29 +54,27 @@ export default function ProjectCard({ src, title, description, audioSrc }: Proje
 
             {/* Foreground layer */}
             <div
-                className="absolute inset-0 z-10 overflow-hidden flex flex-col justify-between items-center p-4"
+                className="absolute inset-0 z-10 overflow-hidden flex flex-col items-center justify-between p-4"
             >
                 <div
-                    className="text-center flex flex-col justify-between h-full"
+                    className="text-center flex flex-col justify-between"
                 >
                     <h3
                         className="text-nowrap text-2xl font-semibold text-off-white"
                     >
                         {title}
                     </h3>
-                    {description && (
-                        <p
-                            className="backdrop-blur-lg p-3 text-xl sm:text-xl md:text-2xl leading-8 rounded-3xl"
-                        >
-                            {description}
-                        </p>
-                    )}
+
                 </div>
 
-                {/* Audio Controls */}
-                <div
+                <Vinyl
+                    width={120}
+                    height={120}
                     className=""
-                >
+                />
+
+                {/* Audio Controls */}
+                <div>
                     <button
                         onClick={toggleAudio}
                         className="bg-off-white rounded-full text-rich-black px-3 py-2 text-sm cursor-pointer"

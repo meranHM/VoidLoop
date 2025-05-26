@@ -11,9 +11,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 
 export default function MottoSection() {
-    const mottoRef = useRef(null)
-    const mottoBoxRef = useRef(null)
-    const mottoVinylRef = useRef(null)
+    const mottoRef = useRef<HTMLSelectElement>(null)
+    const mottoBoxRef = useRef<HTMLDivElement>(null)
+    const mottoVinylRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
         const motto = mottoRef.current
@@ -63,7 +63,7 @@ export default function MottoSection() {
 
                 <Vinyl 
                     ref={mottoVinylRef}
-                    className="left-1/3 -translate-x-1/3 w-[250px] h-[250px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px]"
+                    className="left-1/3 -translate-x-1/3 hidden md:inline w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px]"
                     width={450}
                     height={450}
                 />
