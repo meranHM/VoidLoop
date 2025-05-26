@@ -65,19 +65,19 @@ export default function PortfolioSection() {
                 <div
                     className="w-full flex flex-col lg:flex-row justify-evenly items-center p-6 bg-rich-black rounded-4xl shadow-2xl shadow-rich-black"
                 >
-                    <ProjectCard 
+                    <ProjectCard
                         title="Abhor"
-                        src="/project-thumbnail.webp"
+                        imgSrc="/project-thumbnail.webp"
                         audioSrc="/After.mp3"
                     />
-                    <ProjectCard 
+                    <ProjectCard
                         title="Granny's Home"
-                        src="/project-thumbnail.webp"
+                        imgSrc="/project-thumbnail.webp"
                         audioSrc="/After.mp3"
                     />
-                    <ProjectCard 
+                    <ProjectCard
                         title="Abyss"
-                        src="/project-thumbnail.webp"
+                        imgSrc="/project-thumbnail.webp"
                         audioSrc="/After.mp3"
                     />
                 </div>

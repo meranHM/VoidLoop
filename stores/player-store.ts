@@ -2,18 +2,21 @@ import { createStore } from "zustand/vanilla"
 
 type PlayerState = {
     isPlaying: boolean
+    currentTrackId: string | null
 }
 
 type PlayerActions = {
     play: () => void
     pause: () => void
-    ended: () => void
+    end: () => void
+    setTrackId: (id: string | null) => void
 }
 
 export type PlayerStore = PlayerState & PlayerActions
 
 export const defaultPlayerState: PlayerState = {
     isPlaying: false,
+    currentTrackId: null,
 }
 
 export const createPlayerStore = (initState: PlayerState = defaultPlayerState) =>{
@@ -21,6 +24,7 @@ export const createPlayerStore = (initState: PlayerState = defaultPlayerState) =
         ...initState,
         play: () => set({ isPlaying: true }),
         pause: () => set({ isPlaying: false }),
-        ended: () => set({ isPlaying: false }),
+        end: () => set({ isPlaying: false }),
+        setTrackId: (id) => set({ currentTrackId: id }),
     }))
 }
