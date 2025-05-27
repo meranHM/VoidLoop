@@ -117,7 +117,7 @@ export default function ServicesSection() {
                                         id={service.id}
                                         title={service.title}
                                         dataAnimate="service-card"
-                                        className="text-sm lg:text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-off-white to-royal-gold"
+                                        className="text-sm lg:text-lg font-bold gradient-text"
                                         handleOpenModal={() => handleOpenModal(service)}
                                     />
                                 ))}
