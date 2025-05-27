@@ -77,7 +77,7 @@ export default function ProjectCard({ id, title, thumbnailSrc, audioSrc }: Proje
 
     return (
         <article
-            className="relative w-[90%] lg:max-w-[350px] p-4 m-4 rounded-3xl min-h-96 flex flex-col items-center justify-center overflow-hidden shadow-md shadow-black hover:shadow-royal-gold/30 transition-shadow"
+            className={`relative w-[90%] lg:max-w-[350px] p-4 m-4 rounded-3xl min-h-96 flex flex-col items-center justify-center overflow-hidden shadow-md shadow-black hover:shadow-royal-gold/30 transition-shadow ${isPlaying && currentTrackId === id ? "shadow-royal-gold/30" : ""}`}
         >
             {/* Image Background */}
             <div
@@ -119,9 +119,12 @@ export default function ProjectCard({ id, title, thumbnailSrc, audioSrc }: Proje
                 <div>
                     <button
                         onClick={toggleAudio}
-                        className="bg-off-white rounded-full text-rich-black px-3 py-2 text-sm cursor-pointer"
+                        className="bg-transparent rounded-full text-rich-black p-1 text-sm cursor-pointer hover:shadow hover:shadow-off-white transition-shadow active:scale-95 focus-visible:outline-none focus-visible:shadow focus-visible:shadow-off-white"
                     >
-                        {isPlaying && currentTrackId === id ? "Pause" : "Play"}
+                        {isPlaying && currentTrackId === id 
+                            ? <Image src="/icons/pause-button.webp" alt="Pause button" width={64} height={64} />
+                            : <Image src="/icons/play-button.webp" alt="Play button" width={64} height={64} />
+                        }
                     </button>
                     <ClientOnly >
                         <audio 
