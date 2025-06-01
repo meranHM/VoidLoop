@@ -49,13 +49,13 @@ export const projects: Project[] = [
     {
         id: "after",
         title: "After",
-        audioSrc: "/portfolio-songs/abhor/after.mp3",
+        audioSrc: "/portfolio-songs/abhor/After.mp3",
         thumbnailSrc: "/portfolio-songs/abhor/project-thumbnail.webp",
     },
     {
         id: "house-of-rising",
         title: "House of Rising",
-        audioSrc: "/portfolio-songs/grannys-home/house-of-rising.mp3",
+        audioSrc: "/portfolio-songs/grannys-home/House-of-rising.mp3",
         thumbnailSrc: "/portfolio-songs/grannys-home/project-thumbnail.webp",
     },
     {

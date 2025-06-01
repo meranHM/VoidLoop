@@ -13,52 +13,38 @@ interface ProjectCardProps {
     title: string
     thumbnailSrc: string
     audioSrc: string
+    isPlaying: boolean
+    onPlay: () => void
+    onStop: () => void
 }
 
 
-export default function ProjectCard({ id, title, thumbnailSrc, audioSrc }: ProjectCardProps) {
-    const isPlaying = usePlayerStore((state) => state.isPlaying)
-    const currentTrackId = usePlayerStore((state) => state.currentTrackId)
-    const setTrackId = usePlayerStore((state) => state.setTrackId)
-    const pauseGlobal = usePlayerStore((state) => state.pause)
-    const playGlobal = usePlayerStore((state) => state.play)
-    const end = usePlayerStore((state) => state.end)
-    const setAudioRef = usePlayerStore((state) => state.setAudioRef)
-    const audioRefs = usePlayerStore((state) => state.audioRefs)
-
-    const audioRef = useRef<HTMLAudioElement>(null)
-    const vinylRef = useRef<HTMLDivElement>(null)
+export default function ProjectCard({ id, title, thumbnailSrc, audioSrc, onPlay, onStop, isPlaying }: ProjectCardProps) {
     const cardRef = useRef<HTMLDivElement>(null)
+    const vinylRef = useRef<HTMLDivElement>(null)
+    const audioRef = useRef<HTMLAudioElement>(null)
 
+    // Playing/Pausing the audio depending on if any other song is playing or not
     useEffect(() => {
-        if (audioRef.current) {
-            setAudioRef(id, audioRef.current)
-        }
-    }, [])
+        const audio = audioRef.current
+        if (!audio) return
 
-    const toggleAudio = () => {
-        const currentAudio = audioRef.current
-        if (!currentAudio) return
-
-        // Pausing any other audio if playing
-        if (currentTrackId && currentTrackId !== id) {
-            const prevAudio = audioRefs[currentTrackId]
-            prevAudio?.pause()
-            prevAudio!.currentTime = 0
-        }
-
-        if (currentTrackId === id && isPlaying) {
-            currentAudio.pause()
+        if (isPlaying) {
+            audio.play()
         } else {
-            setTrackId(id)
-            currentAudio.play()
+            audio.pause()
+            audio.currentTime = 0
+        }
+    }, [isPlaying])
+
+    //Handling Pause/Play function for play/pause button
+    const handleToggle = () => {
+        if (isPlaying) {
+            onStop()
+        } else {
+            onPlay()
         }
     }
-
-    // Syncing state with the audio playback
-    const handlePlay = () => playGlobal()
-    const handlePause = () => pauseGlobal()
-    const handleEnded = () => end()
 
     // Animating Vinyl on play and stopping it on pause/end
     useGSAP(() => {
@@ -67,7 +53,7 @@ export default function ProjectCard({ id, title, thumbnailSrc, audioSrc }: Proje
 
         // Killling the tween on pause/end
         const ctx = gsap.context(() => {
-            if (isPlaying && currentTrackId === id) {
+            if (isPlaying) {
                 gsap.to(vinyl, {
                     rotate: 360,
                     duration: 15,
@@ -81,11 +67,11 @@ export default function ProjectCard({ id, title, thumbnailSrc, audioSrc }: Proje
         }, cardRef)
 
         return () => ctx.revert()
-    }, { scope: cardRef, dependencies: [isPlaying, currentTrackId]})
+    }, { scope: cardRef, dependencies: [isPlaying]})
 
     return (
         <article
-            className={`relative w-[90%] lg:max-w-[350px] p-4 m-4 rounded-3xl min-h-96 flex flex-col items-center justify-center overflow-hidden shadow-md shadow-black hover:shadow-royal-gold/30 transition-shadow ${isPlaying && currentTrackId === id ? "shadow-royal-gold/30" : ""}`}
+            className={`relative w-[90%] lg:max-w-[350px] p-4 m-4 rounded-3xl min-h-96 flex flex-col items-center justify-center overflow-hidden shadow-md shadow-black hover:shadow-royal-gold/30 transition-shadow ${isPlaying ? "shadow-royal-gold/30" : ""}`}
         >
             {/* Image Background */}
             <div
@@ -126,10 +112,10 @@ export default function ProjectCard({ id, title, thumbnailSrc, audioSrc }: Proje
                 {/* Audio Controls */}
                 <div>
                     <button
-                        onClick={toggleAudio}
+                        onClick={handleToggle}
                         className="bg-transparent rounded-full text-rich-black p-1 text-sm cursor-pointer hover:shadow hover:shadow-off-white transition-shadow active:scale-95 focus-visible:outline-none focus-visible:shadow focus-visible:shadow-off-white"
                     >
-                        {isPlaying && currentTrackId === id 
+                        {isPlaying 
                             ? <Image src="/icons/pause-button.webp" alt="Pause button" width={64} height={64} />
                             : <Image src="/icons/play-button.webp" alt="Play button" width={64} height={64} />
                         }
@@ -138,10 +124,7 @@ export default function ProjectCard({ id, title, thumbnailSrc, audioSrc }: Proje
                         <audio 
                             ref={audioRef}
                             src={audioSrc}
-                            preload="auto"
-                            onPlay={handlePlay}
-                            onPause={handlePause}
-                            onEnded={handleEnded}
+                            onEnded={onStop}
                         />
                     </ClientOnly>
                 </div>

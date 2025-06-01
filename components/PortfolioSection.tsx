@@ -7,11 +7,15 @@ import { useRef } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { usePlayerStore } from "@/providers/player-store-provider"
 
 gsap.registerPlugin(ScrollTrigger)
 
 
 export default function PortfolioSection() {
+    const currentTrackId = usePlayerStore((state) => state.currentTrackId)
+    const setCurrentTrackId = usePlayerStore((state) => state.setCurrentTrackId)
+
     const portfolioRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
@@ -66,13 +70,17 @@ export default function PortfolioSection() {
                 <div
                     className="w-full flex flex-col lg:flex-row justify-evenly items-center p-6 bg-rich-black rounded-4xl shadow-2xl shadow-rich-black"
                 >
-                    {projects.slice(0, 3).map(({ id, title, audioSrc, thumbnailSrc }) =>(
+                    {/* Only rendering the first 3 projects */}
+                    {projects.slice(0, 3).map(({ id, title, audioSrc, thumbnailSrc }) => (
                         <ProjectCard
                             key={id}
                             id={id}
                             title={title}
                             audioSrc={audioSrc}
                             thumbnailSrc={thumbnailSrc}
+                            isPlaying={currentTrackId === id}
+                            onPlay={() => setCurrentTrackId(id)}
+                            onStop={() => setCurrentTrackId(null)}
                         />
                     ))}
                 </div>
