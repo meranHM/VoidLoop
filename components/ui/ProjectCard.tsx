@@ -1,7 +1,6 @@
 "use client"
 
 import { useRef, useEffect } from "react"
-import { usePlayerStore } from "@/providers/player-store-provider"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import Image from "next/image"
@@ -19,7 +18,7 @@ interface ProjectCardProps {
 }
 
 
-export default function ProjectCard({ id, title, thumbnailSrc, audioSrc, onPlay, onStop, isPlaying }: ProjectCardProps) {
+export default function ProjectCard({ title, thumbnailSrc, audioSrc, onPlay, onStop, isPlaying }: ProjectCardProps) {
     const cardRef = useRef<HTMLDivElement>(null)
     const vinylRef = useRef<HTMLDivElement>(null)
     const audioRef = useRef<HTMLAudioElement>(null)
@@ -34,7 +33,7 @@ export default function ProjectCard({ id, title, thumbnailSrc, audioSrc, onPlay,
         } else {
             audio.pause()
             audio.currentTime = 0
-        }
+        }``
     }, [isPlaying])
 
     //Handling Pause/Play function for play/pause button
