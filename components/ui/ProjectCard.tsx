@@ -33,7 +33,7 @@ export default function ProjectCard({ title, thumbnailSrc, audioSrc, onPlay, onS
         } else {
             audio.pause()
             audio.currentTime = 0
-        }``
+        }
     }, [isPlaying])
 
     //Handling Pause/Play function for play/pause button
