@@ -22,7 +22,7 @@ export const defaultPlayerState: PlayerState = {
 }
 
 export const createPlayerStore = (initState: PlayerState = defaultPlayerState) =>{
-    return createStore<PlayerStore>()((set, get) => ({
+    return createStore<PlayerStore>()((set) => ({
         ...initState,
         audioRefs: {},
         play: () => set({ isPlaying: true }),

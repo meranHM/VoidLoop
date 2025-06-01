@@ -58,7 +58,7 @@ export default function MottoSection() {
             ref={mottoRef}
         >
             <div
-                className="relative w-full flex justify-end items-center px-10 py-4 sm:py-6 md:py-8 lg:py-12"
+                className="relative w-full flex justify-end items-center px-10"
             >
 
                 <Vinyl 

@@ -6,12 +6,12 @@ import gsap from "gsap"
 import { SplitText } from "gsap/SplitText"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
+import FloatingNotes from "./FloatingNotes"
 
 gsap.registerPlugin(SplitText, ScrollTrigger)
 
 export default function AboutSection() {
     const aboutRef = useRef<HTMLDivElement>(null)
-
 
     useGSAP(() => {
         const about = aboutRef.current
@@ -46,7 +46,7 @@ export default function AboutSection() {
             ref={aboutRef}
         >
             <div
-                className="w-full flex flex-col justify-center items-center px-6 py-4 sm:py-6 md:py-8 lg:py-12"
+                className="w-full flex flex-col justify-center items-center px-6"
             >
                 <div
                     className="flex flex-col items-center max-w-[90%] lg:max-w-[650px] overflow-hidden"
@@ -64,6 +64,7 @@ export default function AboutSection() {
                         <span className="special-text">depth, clarity, and soul</span>.
                     </p>
                 </div>
+                
             </div>
         </SectionContainer>
     )

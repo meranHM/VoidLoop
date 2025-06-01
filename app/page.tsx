@@ -4,6 +4,7 @@ import MottoSection from "@/components/MottoSection"
 import ServicesSection from "@/components/ServicesSection"
 import PortfolioSection from "@/components/PortfolioSection"
 import AboutSection from "@/components/AboutSection"
+import FloatingNotes from "@/components/FloatingNotes"
 import TestimonialsSection from "@/components/TestimonialsSection"
 import ContactSection from "@/components/ContactSection"
 import Footer from "@/components/Footer"
@@ -21,10 +22,11 @@ export default function Home() {
         <ServicesSection />
         <PortfolioSection />
         <AboutSection />
+        <FloatingNotes />
         <TestimonialsSection />
         <ContactSection />
       </main>
       <Footer />
     </>
-  );
+  )
 }

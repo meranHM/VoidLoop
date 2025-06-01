@@ -31,7 +31,9 @@ export default function ProjectCard({ id, title, thumbnailSrc, audioSrc }: Proje
     const cardRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        setAudioRef(id, audioRef.current)
+        if (audioRef.current) {
+            setAudioRef(id, audioRef.current)
+        }
     }, [audioRef.current])
 
     const toggleAudio = () => {
@@ -63,17 +65,22 @@ export default function ProjectCard({ id, title, thumbnailSrc, audioSrc }: Proje
         const vinyl = vinylRef.current
         if (!vinyl) return
 
-        const tl = gsap.timeline()
-        if (isPlaying && currentTrackId === id) {
-            tl.to(vinyl, {
-                rotate: 360,
-                duration: 15,
-                repeat: -1,
-                ease: "none",
-            })
-        }
+        const ctx = gsap.context(() => {
+            if (isPlaying && currentTrackId === id) {
+                gsap.to(vinyl, {
+                    rotate: 360,
+                    duration: 15,
+                    repeat: -1,
+                    ease: "none",
+                })
+            } else {
+                gsap.killTweensOf(vinyl)
+                gsap.set(vinyl, { rotate: 0 })
+            }
+        }, cardRef)
 
-    }, { scope: cardRef, dependencies: [isPlaying, currentTrackId], revertOnUpdate: true })
+        return () => ctx.revert()
+    }, { scope: cardRef, dependencies: [isPlaying, currentTrackId]})
 
     return (
         <article

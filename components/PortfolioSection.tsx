@@ -48,7 +48,7 @@ export default function PortfolioSection() {
             ref={portfolioRef}
         >
             <div
-                className="w-full flex flex-col space-y-6 px-6 py-4 sm:py-6 md:py-8 lg:py-12"
+                className="w-full flex flex-col space-y-6 px-6"
             >
                 <div
                     className="flex flex-col justify-center items-start"

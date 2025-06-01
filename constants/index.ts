@@ -65,3 +65,12 @@ export const projects: Project[] = [
         thumbnailSrc: "/portfolio-songs/abhor/project-thumbnail.webp",
     },
 ]
+
+// Animated notes
+export const musicNotes = [
+    "/music-notes/note-1.svg",
+    "/music-notes/note-2.svg",
+    "/music-notes/note-3.svg",
+    "/music-notes/note-4.svg",
+    "/music-notes/note-5.svg",
+]
