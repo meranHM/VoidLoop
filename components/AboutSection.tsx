@@ -6,7 +6,6 @@ import gsap from "gsap"
 import { SplitText } from "gsap/SplitText"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
-import FloatingNotes from "./FloatingNotes"
 
 gsap.registerPlugin(SplitText, ScrollTrigger)
 
