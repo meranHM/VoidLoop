@@ -34,13 +34,13 @@ export default function ProjectCard({ id, title, thumbnailSrc, audioSrc }: Proje
         if (audioRef.current) {
             setAudioRef(id, audioRef.current)
         }
-    }, [audioRef.current])
+    }, [])
 
     const toggleAudio = () => {
         const currentAudio = audioRef.current
         if (!currentAudio) return
 
-        // Pausing any other audio if playying
+        // Pausing any other audio if playing
         if (currentTrackId && currentTrackId !== id) {
             const prevAudio = audioRefs[currentTrackId]
             prevAudio?.pause()
@@ -60,11 +60,12 @@ export default function ProjectCard({ id, title, thumbnailSrc, audioSrc }: Proje
     const handlePause = () => pauseGlobal()
     const handleEnded = () => end()
 
-    // Animating Vinyl on play
+    // Animating Vinyl on play and stopping it on pause/end
     useGSAP(() => {
         const vinyl = vinylRef.current
         if (!vinyl) return
 
+        // Killling the tween on pause/end
         const ctx = gsap.context(() => {
             if (isPlaying && currentTrackId === id) {
                 gsap.to(vinyl, {
